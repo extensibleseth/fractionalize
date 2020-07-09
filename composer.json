@@ -1,0 +1,46 @@
+{
+    "name": "ponies/fractionalize",
+    "description": "Provides a twig filter to display decimal values as fractions.",
+    "type": "craft-plugin",
+    "version": "0.1.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "fractionalize"
+    ],
+    "support": {
+        "docs": "https://github.com/extensibleseth/fractionalize/blob/master/README.md",
+        "issues": "https://github.com/extensibleseth/fractionalize/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Seth Hendrick",
+            "homepage": "https://github.com/extensibleseth/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "ponies\\fractionalize\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Fractionalize",
+        "handle": "fractionalize",
+        "developer": "Seth Hendrick",
+        "developerUrl": "https://github.com/extensibleseth/",
+        "documentationUrl": "https://github.com/extensibleseth/fractionalize/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/extensibleseth/fractionalize/master/CHANGELOG.md",
+        "class": "ponies\\fractionalize\\Fractionalize"
+    }
+}
