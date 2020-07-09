@@ -54,7 +54,7 @@ class FractionalizeTwigExtension extends AbstractExtension
     public function getFilters()
     {
         return [
-            new TwigFilter('someFilter', [$this, 'someInternalFunction']),
+            new TwigFilter('fractionalize', [$this, 'convert_decimal_to_fraction']),
         ];
     }
 
