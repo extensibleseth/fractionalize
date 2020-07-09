@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2020 Seth Hendrick
  */
 
-namespace ponies\fractionalize;
+namespace extensibleseth\fractionalize;
 
-use ponies\fractionalize\twigextensions\FractionalizeTwigExtension;
+use extensibleseth\fractionalize\twigextensions\FractionalizeTwigExtension;
 
 use Craft;
 use craft\base\Plugin;

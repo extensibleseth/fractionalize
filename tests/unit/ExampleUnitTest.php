@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2020 Seth Hendrick
  */
 
-namespace ponies\fractionalizetests\unit;
+namespace extensibleseth\fractionalizetests\unit;
 
 use Codeception\Test\Unit;
 use UnitTester;
 use Craft;
-use ponies\fractionalize\Fractionalize;
+use extensibleseth\fractionalize\Fractionalize;
 
 /**
  * ExampleUnitTest

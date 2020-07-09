@@ -1,5 +1,5 @@
 {
-    "name": "ponies/fractionalize",
+    "name": "extensibleseth/fractionalize",
     "description": "Provides a twig filter to display decimal values as fractions.",
     "type": "craft-plugin",
     "version": "0.1.0",
@@ -31,7 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-          "ponies\\fractionalize\\": "src/"
+          "extensibleseth\\fractionalize\\": "src/"
         }
     },
     "extra": {
@@ -41,6 +41,6 @@
         "developerUrl": "https://github.com/extensibleseth/",
         "documentationUrl": "https://github.com/extensibleseth/fractionalize/blob/master/README.md",
         "changelogUrl": "https://raw.githubusercontent.com/extensibleseth/fractionalize/master/CHANGELOG.md",
-        "class": "ponies\\fractionalize\\Fractionalize"
+        "class": "extensibleseth\\fractionalize\\Fractionalize"
     }
 }

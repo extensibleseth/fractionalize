@@ -32,7 +32,7 @@ modules:
       migrations: []
       plugins:
         fractionalize:
-          class: '\ponies\fractionalize\Fractionalize'
+          class: '\extensibleseth\fractionalize\Fractionalize'
           handle: fractionalize
       cleanup: true
       transaction: true

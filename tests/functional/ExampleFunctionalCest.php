@@ -1,6 +1,6 @@
 <?php
 
-namespace ponies\fractionalizetests\acceptance;
+namespace extensibleseth\fractionalizetests\acceptance;
 
 use Craft;
 use FunctionalTester;
