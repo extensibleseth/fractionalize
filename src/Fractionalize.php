@@ -5,7 +5,7 @@
  * Provides a twig filter to display decimal values as fractions.
  *
  * @link      https://github.com/extensibleseth/
- * @copyright Copyright (c) 2020 Seth Hendrick
+ * @copyright Copyright (c) 2021 Seth Hendrick
  */
 
 namespace extensibleseth\fractionalize;
@@ -31,7 +31,7 @@ use yii\base\Event;
  *
  * @author    Seth Hendrick
  * @package   Fractionalize
- * @since     0.1.0
+ * @since     0.2.0
  *
  */
 class Fractionalize extends Plugin
@@ -55,7 +55,7 @@ class Fractionalize extends Plugin
      *
      * @var string
      */
-    public $schemaVersion = '0.1.0';
+    public $schemaVersion = '0.2.0';
 
     /**
      * Set to `true` if the plugin should have a settings view in the control panel.

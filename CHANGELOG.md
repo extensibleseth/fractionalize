@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/)
+
+## 0.2.0 - 2021-04-07
+### Added
+- dec2hex twig filter.
 
 ## 0.1.0 - 2020-07-09
 ### Added

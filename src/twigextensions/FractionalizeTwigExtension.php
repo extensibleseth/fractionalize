@@ -55,6 +55,7 @@ class FractionalizeTwigExtension extends AbstractExtension
     {
         return [
             new TwigFilter('fractionalize', [$this, 'convert_decimal_to_fraction']),
+            new TwigFilter('dec2hex', [$this, 'convert_decimal_to_hex']),
         ];
     }
 
@@ -84,6 +85,26 @@ class FractionalizeTwigExtension extends AbstractExtension
         $result = $text . " in the way";
 
         return $result;
+    }
+
+
+    /**
+     * Returns a hexidecimal number string.
+     *
+     * @param null $decimal
+     *
+     * @return string 
+     */
+    public function convert_decimal_to_hex($decimal){
+
+        if( !is_object($decimal) )
+        {
+            return intval($decimal, 16);
+        }
+        else
+        {
+            return false;
+        }
     }
 
 
