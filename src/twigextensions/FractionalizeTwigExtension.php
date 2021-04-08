@@ -95,16 +95,33 @@ class FractionalizeTwigExtension extends AbstractExtension
      *
      * @return string 
      */
-    public function convert_decimal_to_hex($decimal){
+    public function convert_decimal_to_hex($decimal)
+    {
 
         if( !is_object($decimal) )
         {
-            return intval($decimal, 16);
+            /*
+            // Convert percent to hex.
+            $decimal = intval($decimal, 10) * 2.55;
+            $decimal = round($decimal, 0, PHP_ROUND_HALF_DOWN);
+            */
+
+            $hex = strval(intval(strval($decimal), 16));
+            if (strlen($hex) === 1)
+            {
+                $hex = '0' . $hex;
+            }
+            if (strcmp($hex, '256') === 0)
+            {
+                $hex = '255';
+            }
+            return $hex;
         }
         else
         {
             return false;
         }
+
     }
 
 
