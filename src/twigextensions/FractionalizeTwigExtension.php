@@ -167,7 +167,7 @@ class FractionalizeTwigExtension extends AbstractExtension
      *
      * @return string
      */
-    public function devMode(string $text): text
+    public function devMode(string $text)
     {
       $devMode = Craft::$app->getConfig()->general->devMode;
       if ($devMode !== FALSE) {

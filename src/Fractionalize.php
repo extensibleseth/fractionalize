@@ -31,7 +31,7 @@ use yii\base\Event;
  *
  * @author    Seth Hendrick
  * @package   Fractionalize
- * @since     0.3.1
+ * @since     0.0.1
  *
  */
 class Fractionalize extends Plugin
@@ -55,7 +55,7 @@ class Fractionalize extends Plugin
      *
      * @var string
      */
-    public $schemaVersion = '0.3.1';
+    public $schemaVersion = '0.4.1';
 
     /**
      * Set to `true` if the plugin should have a settings view in the control panel.
