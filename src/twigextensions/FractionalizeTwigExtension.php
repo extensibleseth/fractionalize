@@ -89,39 +89,35 @@ class FractionalizeTwigExtension extends AbstractExtension
 
 
     /**
-     * Returns a hexidecimal number string.
+     * Takes a base 10 int, returns a hexidecimal number string.
      *
-     * @param null $decimal
+     * @param null $dec
      *
      * @return string 
      */
-    public function convert_decimal_to_hex($decimal)
+    public function convert_decimal_to_hex($dec)
     {
 
-        if( !is_object($decimal) )
-        {
-            /*
-            // Convert percent to hex.
-            $decimal = intval($decimal, 10) * 2.55;
-            $decimal = round($decimal, 0, PHP_ROUND_HALF_DOWN);
-            */
+        $options = array(
+          'options' => array('min_range' => 0)
+        );
 
-            $hex = strval(intval(strval($decimal), 16));
-            if (strlen($hex) === 1)
-            {
-                $hex = '0' . $hex;
-            }
-            if (strcmp($hex, '256') === 0)
-            {
-                $hex = '255';
-            }
-            return $hex;
+        if (filter_var($dec, FILTER_VALIDATE_INT, $options) !== FALSE) {
+          $hex = base_convert(strval($dec), 10, 16);
+          if (strlen($hex) === 1)
+          {
+              $hex = '0' . $hex;
+          }
+          if (strcmp($hex, '256') === 0)
+          {
+              $hex = '255';
+          }
+          return $hex;
         }
         else
         {
             return false;
         }
-
     }
 
 
