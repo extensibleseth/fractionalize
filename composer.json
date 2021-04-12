@@ -2,7 +2,7 @@
     "name": "extensibleseth/fractionalize",
     "description": "Provides a twig filter to display decimal values as fractions.",
     "type": "craft-plugin",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "keywords": [
         "craft",
         "cms",
