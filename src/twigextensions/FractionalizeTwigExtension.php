@@ -56,6 +56,7 @@ class FractionalizeTwigExtension extends AbstractExtension
         return [
             new TwigFilter('fractionalize', [$this, 'convert_decimal_to_fraction']),
             new TwigFilter('dec2hex', [$this, 'convert_decimal_to_hex']),
+            new TwigFilter('devMode', [$this, 'devMode']),
         ];
     }
 
@@ -156,5 +157,25 @@ class FractionalizeTwigExtension extends AbstractExtension
         }else{
             return $whole_number . ' ' . $numerator . '/' . $denominator;
         }
+    }
+
+
+    /**
+     * Outputs in devMode only
+     *
+     * @param null $text
+     *
+     * @return string
+     */
+    public function devMode(string $text): text
+    {
+      $devMode = Craft::$app->getConfig()->general->devMode;
+      if ($devMode !== FALSE) {
+        return $text;
+      }
+      else
+      {
+        return false;
+      }
     }
 }
