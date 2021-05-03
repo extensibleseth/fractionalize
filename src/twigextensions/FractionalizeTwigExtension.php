@@ -57,6 +57,9 @@ class FractionalizeTwigExtension extends AbstractExtension
             new TwigFilter('fractionalize', [$this, 'convert_decimal_to_fraction']),
             new TwigFilter('dec2hex', [$this, 'convert_decimal_to_hex']),
             new TwigFilter('devMode', [$this, 'devMode']),
+            new TwigFilter('fileExists', [$this, 'fileExists']),
+            new TwigFilter('typeOf', [$this, 'getTypeOf']),
+            new TwigFilter('existsOrTrue', [$this, 'existsOrTrue']),
         ];
     }
 
@@ -70,22 +73,13 @@ class FractionalizeTwigExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('someFunction', [$this, 'someInternalFunction']),
+            new Twig_SimpleFunction('fractionalize', [$this, 'convert_decimal_to_fraction']),
+            new Twig_SimpleFunction('dec2hex', [$this, 'convert_decimal_to_hex']),
+            new Twig_SimpleFunction('devMode', [$this, 'devMode']),
+            new Twig_SimpleFunction('fileExists', [$this, 'fileExists']),
+            new Twig_SimpleFunction('typeOf', [$this, 'getTypeOf']),
+            new Twig_SimpleFunction('existsOrTrue', [$this, 'existsOrTrue'])
         ];
-    }
-
-    /**
-     * Our function called via Twig; it can do anything you want
-     *
-     * @param null $text
-     *
-     * @return string
-     */
-    public function someInternalFunction($text = null)
-    {
-        $result = $text . " in the way";
-
-        return $result;
     }
 
 
@@ -170,12 +164,96 @@ class FractionalizeTwigExtension extends AbstractExtension
     public function devMode(string $text)
     {
       $devMode = Craft::$app->getConfig()->general->devMode;
-      if ($devMode !== FALSE) {
+      if ($devMode !== FALSE)
+      {
         return $text;
       }
       else
       {
         return false;
       }
+    }
+
+
+    /**
+     * Our function called via Twig; it can do anything you want
+     *
+     * @param null $text
+     *
+     * @return string
+     */
+    public function getTypeOf($variable)
+    {
+        return gettype($variable);
+    }
+
+
+    public function existsOrTrue($variable)
+    {
+        if (isset($variable)) {
+            if ($variable == NULL) {
+                return false;
+            }
+
+            switch (gettype($variable)) {
+                case 'NULL':
+                    return false;
+                    break;
+                case 'array':
+                    if (sizeof($variable) < 1) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                    break;
+                case 'string':
+                    if (strlen($variable) == 0) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                    break;
+                case 'integer':
+                case 'double':
+                    if ($variable == 0) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                    break;
+                case 'boolean':
+                    return $variable;
+                    break;
+                case 'object':
+                    if (sizeof(get_object_vars($variable)) < 1) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                    break;
+            }
+        } else {
+            return false;
+        }
+    }
+
+
+    /**
+     *
+     * @param null $url
+     *
+     * @return string
+     */
+    public function fileExists($url = null)
+    {
+        $urlParsed = parse_url($url, PHP_URL_PATH);
+        $fullUrl = '.'.'/'.ltrim($urlParsed,'/');
+        if (file_exists($fullUrl)) {
+            return true;
+        }
+        if (@file_get_contents($url,0,NULL,0,1)) {
+            return true;
+        }
+        return false;
     }
 }
