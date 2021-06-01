@@ -17,6 +17,7 @@ use Craft;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+use Twig\Extra\Intl\IntlExtension;
 
 /**
  * Twig can be extended in many ways; you can add extra tags, filters, tests, operators,
@@ -123,7 +124,8 @@ class FractionalizeTwigExtension extends AbstractExtension
      *
      * @return array
      */
-    public function convert_decimal_to_fraction($decimal){
+    public function convert_decimal_to_fraction($decimal)
+    {
         $tolerance = 1.e-3;
 
         $h1=1; $h2=0;
@@ -163,7 +165,7 @@ class FractionalizeTwigExtension extends AbstractExtension
      */
     public function devMode(string $text)
     {
-      $devMode = Craft::$app->getConfig()->general->devMode;
+      $devMode = Craft::$app->getConfig()->general->devMode ?? null;
       if ($devMode !== FALSE)
       {
         return $text;
