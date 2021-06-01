@@ -74,12 +74,12 @@ class FractionalizeTwigExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new Twig_Function('fractionalize', [$this, 'convert_decimal_to_fraction']),
-            new Twig_Function('dec2hex', [$this, 'convert_decimal_to_hex']),
-            new Twig_Function('devMode', [$this, 'devMode']),
-            new Twig_Function('fileExists', [$this, 'fileExists']),
-            new Twig_Function('typeOf', [$this, 'getTypeOf']),
-            new Twig_Function('existsOrTrue', [$this, 'existsOrTrue'])
+            new TwigFunction('fractionalize', [$this, 'convert_decimal_to_fraction']),
+            new TwigFunction('dec2hex', [$this, 'convert_decimal_to_hex']),
+            new TwigFunction('devMode', [$this, 'devMode']),
+            new TwigFunction('fileExists', [$this, 'fileExists']),
+            new TwigFunction('typeOf', [$this, 'getTypeOf']),
+            new TwigFunction('existsOrTrue', [$this, 'existsOrTrue'])
         ];
     }
 
